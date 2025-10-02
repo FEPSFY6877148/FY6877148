@@ -100,6 +100,40 @@
   </p>
 
   </hr>
+
+    <!Adding Last Update>
+    <div id="last-updated">Loading last update time...</div>
+
+    <button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
+      Verify Last Modified Time
+    </button>
+
+    <script>
+      async function getLastUpdatedTime() {
+        const username = 'FEPSFY6877148 ' ;
+        const repo = ' FY6877148 ';
+
+        const url = 'https://api.github.com/repos/$FEPSFY6877148/$FY6877148/commits' ;
+
+        try {
+          const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+              'Accept' : 'applictation/vnd.github.v3+json',
+            }
+          });
+          if (!response.ok) {
+            throw new Error('Error fetching data: ${response.status} - ${response.statusText}' );
+          }
+          const commits = await response.json();
+          if ( commits &&commits.length > 0) {
+            const lastCOmmitDate = new Date(commits[0].commit.committer.date0;
+
+            document.getElementById('last-updated').innerText = 'Last Modified Time: ${lastCommitDate.toLocaleString()}';
+          } else {
+            document.getElementById('last-updated').innerText = 'No commits found in the repository.';
+          }
+    </script>
   </body>
   
   
