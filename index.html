@@ -110,10 +110,10 @@
 
     <script>
       async function getLastUpdatedTime() {
-        const username = 'FEPSFY6877148 ' ;
-        const repo = ' FY6877148 ';
+        const username = 'FEPSFY6877148' ;
+        const repo = ' FY6877148';
 
-        const url = 'https://api.github.com/repos/$FEPSFY6877148/$FY6877148/' ;
+        const url = 'https://api.github.com/repos/${username}/${repo}/commits' ;
 
         try {
           const response = await fetch(url, {
